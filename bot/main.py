@@ -13,7 +13,6 @@ class telegram_bot:
     def __init__(self):
         self.OFFSET = self.get_OFFSET()
         self.sender = None
-        self.file_path = os.path.abspath(os.getcwd())
         self.plotParams = []
 
     def get_OFFSET(self):
@@ -68,7 +67,7 @@ def main():
                 if tbot.plotParams[3].lower() == "nein":
                     plt = autoplot.plot(tbot.plotParams[0], tbot.plotParams[1])
                     plt.make_plot()
-                    with open('CO2.png', 'rb') as datei: 
+                    with open('data/CO2.png', 'rb') as datei: 
                         bot.send_photo(chat_id = tbot.chat_id, photo=datei)
                 elif tbot.plotParams[3].lower() == "ja":
                     bot.sendMessage(chat_id = tbot.chat_id, text = f"{tbot.sender} \n 1.Startzeit (z.B. 2021-01-01 00:00:00): ")
@@ -77,7 +76,7 @@ def main():
                     tbot.plotParams.append(tbot.get_information("msg"))
                     plt = autoplot.plot(tbot.plotParams[0], tbot.plotParams[1], tbot.plotParams[3], tbot.plotParams[4], tbot.plotParams[5])
                     plt.make_plot()
-                    with open('CO2.png', 'rb') as datei: 
+                    with open('data/CO2.png', 'rb') as datei: 
                         bot.send_photo(chat_id = tbot.chat_id, photo=datei)
                 plt.del_files()
         except (requests.exceptions.ConnectionError, KeyError, ValueError):
