@@ -5,17 +5,16 @@ import os
 import autoplot
 
 class telegram_bot:
-    token = "1265649735:AAHLrpl62qNx9X5z9BvmIdzgr5NZZpTx1vY"
+    token = "" # enter your bot-token here
     re_url = f"http://api.telegram.org/bot{token}/getUpdates"
-    bot = telegram.Bot(token = token)
-    chat_id = 1454784691
-    plotParams = []
-    #-571143034
-
+    chat_id = # enter your chat_id here
+    
+    
     def __init__(self):
         self.OFFSET = self.get_OFFSET()
         self.sender = None
         self.file_path = os.path.abspath(os.getcwd())
+        self.plotParams = []
 
     def get_OFFSET(self):
         while True:
