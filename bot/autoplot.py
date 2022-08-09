@@ -13,14 +13,15 @@ class plot:
         self.ticks = []        
         self.ts = None
         self.values = []
+        self.path = os.path.abspath(os.getcwd()) + "/data"
     
     def del_files(self):
-        for filename in os.listdir(os.path.abspath(os.getcwd())):
+        for filename in os.listdir(self.path):
             if filename.lower().endswith((".txt", ".png")):
                 os.remove(filename)
 
     def get_txt_file(self):
-        for filename in os.listdir(os.path.abspath(os.getcwd())):
+        for filename in os.listdir(self.path):
             if filename.lower().endswith((".txt")):
                 return filename
 
