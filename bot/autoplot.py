@@ -18,12 +18,12 @@ class plot:
     def del_files(self):
         for filename in os.listdir(self.path):
             if filename.lower().endswith((".txt", ".png")):
-                os.remove(filename)
+                os.remove(self.path + "/" + filename)
 
     def get_txt_file(self):
         for filename in os.listdir(self.path):
             if filename.lower().endswith((".txt")):
-                return filename
+                return self.path + "/" + filename
 
     def make_x_y(self):
         with open(self.get_txt_file()) as datei:
