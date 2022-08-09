@@ -52,7 +52,7 @@ class plot:
         plt.legend(["CO2"])
         figure=plot.get_figure()
         if self.bereich.lower() == "nein":
-            figure.savefig("CO2.png", dpi=400)
+            figure.savefig("data/plot.png", dpi=400)
         else:
-            figure.savefig("CO2.png", dpi=600)
+            figure.savefig("data/plot.png", dpi=600)
         plt.close(fig=figure)
